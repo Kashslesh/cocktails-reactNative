@@ -1,7 +1,5 @@
 # Cocktail Recipes App
 
-[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-
 This repository contains the source code for a cocktail recipes application built using the React Native framework and TheCocktailDB API.
 
 ## Features
