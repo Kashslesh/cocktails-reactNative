@@ -18,7 +18,13 @@ This repository contains the source code for a cocktail recipes application buil
 - **Styling**: Applied styles to enhance the visual appeal of the application.
 - **Loader**: Included a loader to indicate when data is being fetched from the API.
 
+## Installation
 ```bash
+npm install
+```
+```bash
+npm start
+```
 ## Usage
 - On the homepage, scroll through the list of cocktail recipes to discover various options.
 - Tap on a cocktail recipe to view its details on the detail page.
