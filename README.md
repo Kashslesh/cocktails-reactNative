@@ -17,3 +17,12 @@ This repository contains the source code for a cocktail recipes application buil
 - **Componentization**: Organized code into reusable components for better maintainability.
 - **Styling**: Applied styles to enhance the visual appeal of the application.
 - **Loader**: Included a loader to indicate when data is being fetched from the API.
+
+
+## Usage
+- **On the homepage, scroll through the list of cocktail recipes to discover various options.
+- **Tap on a cocktail recipe to view its details on the detail page.
+- **Navigate to the favorites page to save your preferred cocktail recipes.
+- **Explore the additional page to see cocktails categorized by type.
+- **Use the search functionality (optional) to filter cocktails by ingredient.
+- **Enjoy exploring and experimenting with different cocktail recipes!
