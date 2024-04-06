@@ -20,6 +20,9 @@ This repository contains the source code for a cocktail recipes application buil
 
 ## Installation
 ```bash
+git clone
+```
+```bash
 npm install
 ```
 ```bash
@@ -34,8 +37,8 @@ npm start
 - Enjoy exploring and experimenting with different cocktail recipes!
 
 
-##Technologies Used
--React Native
--Expo
--JavaScript
--TheCocktailDB API
+## Technologies Used
+- React Native
+- Expo
+- JavaScript
+- TheCocktailDB API
