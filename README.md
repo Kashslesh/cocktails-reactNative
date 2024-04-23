@@ -39,4 +39,5 @@ npm start
 - React Native
 - Expo
 - JavaScript
+- ReduxJS
 - TheCocktailDB API
