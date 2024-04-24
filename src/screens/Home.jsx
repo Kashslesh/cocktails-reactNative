@@ -38,7 +38,7 @@ export default function Home({ navigation }) {
         navigation.navigate('Details', {id})
     }
     useEffect(()=>{
-       // Store.dispatch(allCocktails(fetchByLetter('a')))
+       Store.dispatch(allCocktails())
         fetchMoreData(currentLetter)
     },[currentLetter])
     return (
