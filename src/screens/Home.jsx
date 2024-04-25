@@ -8,7 +8,7 @@ import Error from '../components/UI/Error/Error';
 import axios from "axios";
 import {fetchByLetter} from '../service/requests/requests'
 import Store from "../store/Store";
-import {allCocktails} from "../store/Cocktails/AllCocktailsSlice";
+import {allCocktails} from "../store/cocktails/AllCocktailsSlice";
 
 export default function Home({ navigation }) {
     const [cocktails, setCocktails] = useState([])
