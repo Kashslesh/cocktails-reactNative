@@ -1,8 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
-import RootReducer from './RootReducers';
-
+import CocktailsReducer from "./cocktails/CocktailsSlicer";
 const store = configureStore({
-    reducer: RootReducer
+    cocktailsReducer: CocktailsReducer
 });
 
 export default store;

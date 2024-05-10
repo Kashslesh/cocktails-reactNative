@@ -2,7 +2,7 @@ import * as React from 'react';
 import {Button, Card} from 'react-native-paper';
 import {Pressable} from "react-native";
 import { useSelector, useDispatch } from 'react-redux'
-import {addFavoriteAction} from '../../../store/favorite/FavoriteSlice'
+import {addFavoriteAction} from '../../../store/favorite/FavoriteSlicer'
 
 
 

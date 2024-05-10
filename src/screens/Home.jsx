@@ -3,12 +3,7 @@ import {useState, useEffect} from "react";
 import {alphabet} from "../service/tools/tools"
 import Spinner from "../components/UI/Spinner/Spinner";
 import CardComponent from "../components/UI/Card/Card";
-import {urlApiByLetter} from "../service/urls/urls_api";
 import Error from '../components/UI/Error/Error';
-import axios from "axios";
-import {fetchByLetter} from '../service/requests/requests'
-import Store from "../store/Store";
-import {allCocktails} from "../store/cocktails/AllCocktailsSlice";
 
 export default function Home({ navigation }) {
     const [cocktails, setCocktails] = useState([])
@@ -22,24 +17,11 @@ export default function Home({ navigation }) {
         let letter = alphabetArr.find((item,index)=> index === alphabetArr.indexOf(currentLetter)+1)
         setCurrentLetter(letter)
     }
-    async function fetchMoreData(letter) {
-        await axios.get(urlApiByLetter(letter))
-            .then((responses) => {
-                responses.data.drinks.forEach((item)=>{
-                    if(item === 'undefined'){return}
-                    setCocktails(cocktails=>[...cocktails,item])
-                })
-            })
-            .catch((error) => {
-                setError(error)
-            })
-    }
     const linkToDetails = function (id){
         navigation.navigate('Details', {id})
     }
     useEffect(()=>{
-       Store.dispatch(allCocktails())
-        fetchMoreData(currentLetter)
+
     },[currentLetter])
     return (
         <View style={styles.home}>

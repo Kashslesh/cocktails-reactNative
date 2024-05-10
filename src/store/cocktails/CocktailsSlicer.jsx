@@ -1,9 +1,7 @@
-import { createStore, applyMiddleware } from 'redux'
-import {thunk} from 'redux-thunk'
 import { alphabet } from "../../service/tools/tools";
 import { FETCH_DATA_REQUEST, FETCH_DATA_SUCCESS, FETCH_DATA_ERROR } from "../../service/tools/request_types";
 import {fetchByLetter} from "../../service/requests/requests";
-import {createSlice} from "@reduxjs/toolkit";
+import {createSlice, createAsyncThunk} from "@reduxjs/toolkit";
 
 export const cocktailsSlice = createSlice({
     name: 'fetchCocktails',
