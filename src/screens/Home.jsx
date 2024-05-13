@@ -1,35 +1,36 @@
 import {View, StyleSheet,FlatList} from "react-native";
-import {useState, useEffect} from "react";
-import {alphabet} from "../service/tools/tools"
+import {useEffect} from "react";
 import Spinner from "../components/UI/Spinner/Spinner";
 import CardComponent from "../components/UI/Card/Card";
 import Error from '../components/UI/Error/Error';
-
+import {useDispatch,useSelector} from "react-redux";
+import {allCocktails} from "../store/cocktails/CocktailsSlicer";
+import {nextLetter} from "../store/cocktails/CocktailsSlicer";
 export default function Home({ navigation }) {
-    const [cocktails, setCocktails] = useState([])
-    const [alphabetArr, setAlphabet] = useState(alphabet())
-    const [currentLetter, setCurrentLetter] = useState(alphabetArr[0])
-    const [error, setError] = useState(false)
+    const dispatch = useDispatch()
+    const cocktails = useSelector(state => state.cocktails.list)
+    const error = useSelector(state => state.cocktails.error)
+    const currentLetter = useSelector(state => state.cocktails.currentLetter)
 
-
-    const nextLetter = ()=>{
-        if(currentLetter === alphabetArr[alphabetArr.length -1]){return}
-        let letter = alphabetArr.find((item,index)=> index === alphabetArr.indexOf(currentLetter)+1)
-        setCurrentLetter(letter)
-    }
     const linkToDetails = function (id){
         navigation.navigate('Details', {id})
     }
-    useEffect(()=>{
 
+    useEffect(()=>{
+        dispatch(allCocktails())
     },[currentLetter])
+    const nextPage = ()=>{
+        dispatch(nextLetter())
+    }
+
     return (
         <View style={styles.home}>
             { error ? <Error/> :
                 <FlatList
                 data={cocktails}
                 renderItem={(item)=><CardComponent navigate={linkToDetails} dataCard={item}/>}
-                onEndReached={nextLetter}
+                onEndReachedThreshold={0.5}
+                onEndReached={nextPage}
                 ListFooterComponent={()=><Spinner/>}
             />}
         </View>
