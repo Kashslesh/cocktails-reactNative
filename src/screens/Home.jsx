@@ -4,13 +4,15 @@ import Spinner from "../components/UI/Spinner/Spinner";
 import CardComponent from "../components/UI/Card/Card";
 import Error from '../components/UI/Error/Error';
 import {useDispatch,useSelector} from "react-redux";
-import {allCocktails} from "../store/cocktails/CocktailsSlicer";
-import {nextLetter} from "../store/cocktails/CocktailsSlicer";
+import {allCocktails} from "../store/cocktails/CocktailsSlice";
+import {nextLetter} from "../store/cocktails/CocktailsSlice";
+import Fin from "../components/UI/Fin/Fin";
 export default function Home({ navigation }) {
     const dispatch = useDispatch()
     const cocktails = useSelector(state => state.cocktails.list)
     const error = useSelector(state => state.cocktails.error)
     const currentLetter = useSelector(state => state.cocktails.currentLetter)
+    const endOfList = useSelector(state => state.cocktails.endOfList)
 
     const linkToDetails = function (id){
         navigation.navigate('Details', {id})
@@ -29,9 +31,8 @@ export default function Home({ navigation }) {
                 <FlatList
                 data={cocktails}
                 renderItem={(item)=><CardComponent navigate={linkToDetails} dataCard={item}/>}
-                onEndReachedThreshold={0.5}
                 onEndReached={nextPage}
-                ListFooterComponent={()=><Spinner/>}
+                ListFooterComponent={()=>endOfList ? <Fin/> : <Spinner/>}
             />}
         </View>
     );

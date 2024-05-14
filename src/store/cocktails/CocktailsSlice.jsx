@@ -8,7 +8,8 @@ const initialState = {
     list: [],
     error: null,
     letters: alphabet(),
-    currentLetter: alphabet()[0]
+    currentLetter: alphabet()[0],
+    endOfList : false
 }
 
 export const cocktailsSlice = createSlice({
@@ -16,7 +17,10 @@ export const cocktailsSlice = createSlice({
     initialState,
     reducers:{
         nextLetter : (state)=> {
-            if(state.currentLetter === state.letters[state.letters.length -1]){return}
+            if(state.currentLetter === state.letters[state.letters.length -1]){
+                state.endOfList = true
+                return
+            }
             let letter = state.letters.find((item,index)=> index === state.letters.indexOf(state.currentLetter)+1)
             state.currentLetter = letter
         }
@@ -25,7 +29,7 @@ export const cocktailsSlice = createSlice({
         builder.addCase(
             allCocktails.fulfilled,
             (state, action) => {
-                return {...state, loading: false, list: action.payload};
+                return {...state, loading: false, list: [...state.list, ...action.payload]};
             })
             .addCase(allCocktails.pending,
                 (state, action) => {

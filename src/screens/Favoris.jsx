@@ -1,14 +1,12 @@
 import {View} from "react-native";
 import {Text} from "react-native-paper"
-import axios from "axios";
-import {useState,useEffect} from "react";
-import Error from '../components/UI/Error/Error'
+import {useEffect} from "react";
+import {useSelector} from "react-redux";
 
-
-export default function Details(){
+export default function Details() {
     return (
-        <View style={{ flex: 1, justifyContent: 'center' }}>
-            <Text>List is empty</Text>
+        <View style={{flex: 3, marginLeft: 'auto', marginRight: 'auto', justifyContent: 'center'}}>
+            <Text variant="displaySmall">Favorites is empty</Text>
         </View>
     );
 }
