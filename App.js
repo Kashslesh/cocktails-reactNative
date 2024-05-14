@@ -1,7 +1,7 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Home from "./src/screens/Home";
-import Favorite from "./src/screens/Favoris";
+import Favorites from "./src/screens/Favorites";
 import Search from "./src/screens/Search";
 import Details from "./src/screens/Details";
 import {Avatar} from "react-native-paper"
@@ -30,7 +30,7 @@ export default function App() {
                           ),
                           //tabBarBadge: 3,
                       }}
-                      name="Favoris" component={Favorite}/>
+                      name="Favorites" component={Favorites}/>
                   <Tab.Screen
                       options={{
                           tabBarIcon: ({ color, size }) => (
