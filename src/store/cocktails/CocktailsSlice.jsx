@@ -1,12 +1,12 @@
 import {alphabet} from "../../service/tools/tools";
-import {createSlice, createAsyncThunk, unwrapResult} from "@reduxjs/toolkit";
+import {createSlice, createAsyncThunk} from "@reduxjs/toolkit";
 import axios from "axios";
 import {urlApiByLetter} from "../../service/urls/urls";
 
 const initialState = {
     loading: false,
     list: [],
-    error: null,
+    error: false,
     letters: alphabet(),
     currentLetter: alphabet()[0],
     endOfList : false
@@ -37,7 +37,7 @@ export const cocktailsSlice = createSlice({
             })
             .addCase(allCocktails.rejected,
                 (state, action) => {
-                    return {...state, loading: false, error: action.payload};
+                    return {...state, loading: false, error: true};
             })
     }
 })
@@ -49,9 +49,6 @@ export const allCocktails = createAsyncThunk(
         let letter = thunkAPI.getState().cocktails.currentLetter
         return axios.get(urlApiByLetter(letter))
             .then(res => res.data.drinks)
-            .catch(error=>{
-                return rejectWithValue(error.response.data)
-            })
     }
 )
 export default cocktailsSlice.reducer

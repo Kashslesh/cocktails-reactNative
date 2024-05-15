@@ -8,11 +8,19 @@ export const favoriteSlice = createSlice({
     reducers:{
         addFavorite : (state,action)=>{
             if(state.listFavorites.find(el => el.idDrink === action.payload.idDrink)){return}
-            state.listFavorites.push(action.payload)
+            return{
+                ...state,
+                listFavorites: [...state.listFavorites, action.payload]
+            }
         },
         deleteFavorite : (state, action)=>{
-            console.log(action.payload)
-            //state.listFavorites = state.listFavorites.filter(el=> el.idDrink !== action.payload.idDrink)
+            const arr = state.listFavorites.filter((item) => {
+                return item.idDrink !== action.payload
+            })
+            return{
+                ...state,
+                listFavorites: arr
+            }
         }
     }
 })
