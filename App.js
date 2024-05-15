@@ -8,10 +8,17 @@ import {Avatar} from "react-native-paper"
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Provider } from 'react-redux'
 import Store from "./src/store/Store";
+import {useSelector} from "react-redux";
+import {useEffect} from "react";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 export default function App() {
+    let amountFavorites;
+    useEffect(() => {
+        amountFavorites = Store.getState().favorite.listFavorites.length > 0 ? Store.getState().favorite.listFavorites.length + 1 : null
+    }, [Store.getState().favorite.listFavorites.length]);
+
   return (
       <Provider store={Store}>
           <NavigationContainer>
@@ -20,7 +27,6 @@ export default function App() {
                       tabBarIcon: ({ color, size }) => (
                           <Avatar.Icon icon="glass-cocktail" size={35} style={{ backgroundColor:'transparent'}} color='red'/>
                       ),
-                      //tabBarBadge: 3,
                   }}
                    name="Cocktails" component={Home}/>
                   <Tab.Screen
@@ -28,7 +34,7 @@ export default function App() {
                           tabBarIcon: ({ color, size }) => (
                               <Avatar.Icon icon="star" size={35} style={{ backgroundColor:'transparent'}} color='red'/>
                           ),
-                          //tabBarBadge: 3,
+                          tabBarBadge: amountFavorites,
                       }}
                       name="Favorites" component={Favorites}/>
                   <Tab.Screen
@@ -36,7 +42,6 @@ export default function App() {
                           tabBarIcon: ({ color, size }) => (
                               <Avatar.Icon icon="search-web" size={35} style={{ backgroundColor:'transparent'}} color='red'/>
                           ),
-                          //tabBarBadge: 3,
                       }}
                       name="Search" component={Search}/>
               </Tab.Navigator>
