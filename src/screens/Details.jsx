@@ -10,7 +10,7 @@ import Error from '../components/UI/Error/Error'
 export default function Details({ route, navigation }){
     const [cocktail, setCocktail] = useState(null)
     const [error, setError] = useState(false)
-    let id  = route.params.id;
+    let id  = route.params.id ? route.params.id : null;
     const goBack = ()=>{
         id = null
         navigation.goBack()
