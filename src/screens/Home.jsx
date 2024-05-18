@@ -1,7 +1,7 @@
 import {View, StyleSheet,FlatList} from "react-native";
 import {useEffect} from "react";
 import Spinner from "../components/UI/Spinner/Spinner";
-import CardComponent from "../components/UI/Card/Card";
+import Card from "../components/UI/Card/Card";
 import Error from '../components/UI/Error/Error';
 import {useDispatch,useSelector} from "react-redux";
 import {allCocktails} from "../store/cocktails/CocktailsSlice";
@@ -14,8 +14,8 @@ export default function Home({ navigation }) {
     const currentLetter = useSelector(state => state.cocktails.currentLetter)
     const endOfList = useSelector(state => state.cocktails.endOfList)
 
-    const linkToDetails = function (id){
-        navigation.navigate('Details', {id})
+    const linkToDetails = function (cocktail){
+        navigation.navigate('Details', {cocktail})
     }
 
     useEffect(()=>{
@@ -24,13 +24,12 @@ export default function Home({ navigation }) {
     const nextPage = ()=>{
         dispatch(nextLetter())
     }
-
     return (
         <View style={styles.home}>
             { error ? <Error/> :
                 <FlatList
                 data={cocktails}
-                renderItem={(item)=><CardComponent navigate={linkToDetails} dataCard={item}/>}
+                renderItem={(item)=><Card navigate={linkToDetails} dataCard={item}/>}
                 onEndReached={nextPage}
                 ListFooterComponent={()=>endOfList ? <Fin/> : <Spinner/>}
             />}

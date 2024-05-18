@@ -7,7 +7,7 @@ import {addFavorite} from '../../../store/favorite/FavoriteSlice'
 export default function CardComponent({dataCard, navigate}) {
     const dispatch = useDispatch()
     return (
-        <Pressable onPress={() => navigate(dataCard.item.idDrink)}>
+        <Pressable onPress={() => navigate(dataCard.item)}>
             <Card style={{marginTop: 20, marginBottom: 20}} mode="elevated">
                 <Card.Title title={dataCard.item.strDrink} subtitle={dataCard.item.strCategory}/>
                 <Card.Cover style={{borderRadius: 0}} source={{uri: dataCard.item.strDrinkThumb}}/>

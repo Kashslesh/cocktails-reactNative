@@ -16,9 +16,11 @@ export default function Details({ navigation }){
     const error = useSelector(state => state.searchCocktails.error)
     const loading = useSelector(state => state.searchCocktails.loading)
 
-    const linkToDetails = function (id){
-        navigation.navigate('Details', {id})
+    const linkToDetails = function (cocktail){
+        navigation.navigate('Details', {cocktail})
     }
+    const goBack = ()=>{navigation.goBack()}
+
 
     useEffect(()=>{
         if (searchQuery.length < 3){return}
