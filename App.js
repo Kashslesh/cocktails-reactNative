@@ -17,7 +17,7 @@ const Stack = createNativeStackNavigator();
 function HomeStackScreen() {
     return (
         <Stack.Navigator screenOptions={{headerShown: false}}>
-            <Stack.Screen name="Home" component={Home}/>
+            <Stack.Screen name="HomeScreen" component={Home}/>
             <Stack.Screen name="Details" component={Details}/>
         </Stack.Navigator>
     );
@@ -26,7 +26,8 @@ function HomeStackScreen() {
 function FavoritesStackScreen() {
     return (
         <Stack.Navigator screenOptions={{headerShown: false}}>
-            <Stack.Screen name="Favorites" component={Favorites}/>
+            <Stack.Screen name="FavoritesScreen" component={Favorites}/>
+            <Stack.Screen name="DetailsFavorites" component={Details}/>
         </Stack.Navigator>
     );
 }
@@ -34,7 +35,8 @@ function FavoritesStackScreen() {
 function SearchStackScreen() {
     return (
         <Stack.Navigator screenOptions={{headerShown: false}}>
-            <Stack.Screen name="Search" component={Search}/>
+            <Stack.Screen name="SearchScreen" component={Search}/>
+            <Stack.Screen name="DetailsSearch" component={Details}/>
         </Stack.Navigator>
     );
 }

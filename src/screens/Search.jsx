@@ -17,10 +17,9 @@ export default function Details({ navigation }){
     const loading = useSelector(state => state.searchCocktails.loading)
 
     const linkToDetails = function (cocktail){
-        navigation.navigate('Details', {cocktail})
+        navigation.navigate('DetailsSearch', {cocktail})
     }
     const goBack = ()=>{navigation.goBack()}
-
 
     useEffect(()=>{
         if (searchQuery.length < 3){return}
@@ -33,8 +32,7 @@ export default function Details({ navigation }){
                <View style={{ paddingRight: 5, paddingLeft: 5 }}>
                    <Searchbar
                        placeholder="Search"
-                       aria-label="search"
-                       focusable=""
+                       aria-label="label"
                        mode="view"
                        enterKeyHint="search"
                        onChangeText={setSearchQuery}
