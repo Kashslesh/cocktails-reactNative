@@ -32,7 +32,7 @@ export default function Details({ navigation }){
                <View style={{ paddingRight: 5, paddingLeft: 5 }}>
                    <Searchbar
                        placeholder="Search"
-                       aria-label="label"
+                       aria-label="Search"
                        mode="view"
                        enterKeyHint="search"
                        onChangeText={setSearchQuery}
