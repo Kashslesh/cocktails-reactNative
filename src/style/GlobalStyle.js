@@ -687,6 +687,15 @@ export default gstyles = StyleSheet.create({
         resizeMode: 'center'
     },
     tint_img:{
-        tintColor: 'rgba(0,0,0,0.16)',
+        tintColor: 'rgba(0,0,0,0.02)',
+    },
+    z_100:{
+        zIndex:100
+    },
+    z_900:{
+        zIndex:900
+    },
+    gs_70:{
+        filter: 'grayscale(50%)'
     }
 });
