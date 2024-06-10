@@ -300,6 +300,9 @@ export default gstyles = StyleSheet.create({
     icon_black: {
         tintColor: "#000",
     },
+    d_flex:{
+
+    },
     jc_start: {
         justifyContent: "flex-start",
     },
@@ -314,6 +317,9 @@ export default gstyles = StyleSheet.create({
     },
     jc_se: {
         justifyContent: "space-evenly",
+    },
+    jc_end: {
+        justifyContent: "flex-end",
     },
     leading_3: {
         lineHeight: 12,
@@ -689,13 +695,31 @@ export default gstyles = StyleSheet.create({
     tint_img:{
         tintColor: 'rgba(0,0,0,0.02)',
     },
-    z_100:{
-        zIndex:100
+    z_1:{
+        zIndex:1
     },
-    z_900:{
-        zIndex:900
+    z_0:{
+        zIndex:0
     },
     gs_70:{
         filter: 'grayscale(50%)'
+    },
+    bg_color_black:{
+        backgroundColor: 'rgba(0,0,0,0.66)'
+    },
+    color_light:{
+        color: "#f8f9fa"
+    },
+    color_light_grey:{
+        color: "#bebebe"
+    },
+    bg_tnt:{
+        backgroundColor: "rgba(255,255,255,0)"
+    },
+    m_top:{
+        marginBottom: -20
+    },
+    r_0:{
+        right: 0
     }
 });

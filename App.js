@@ -10,6 +10,9 @@ import {Provider as ProviderNav} from 'react-native-paper';
 import Store from "./src/store/Store";
 import {useSelector} from "react-redux";
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
+import { AntDesign } from '@expo/vector-icons';
+import { MaterialIcons } from '@expo/vector-icons';
+import { Fontisto } from '@expo/vector-icons';
 
 const Tab = createMaterialBottomTabNavigator()
 const Stack = createNativeStackNavigator();
@@ -51,8 +54,7 @@ function AppContent() {
                     component={HomeStackScreen}
                     options={{
                         tabBarIcon: ({color, size}) => (
-                            <Avatar.Icon icon="glass-cocktail" size={35} style={{backgroundColor: 'transparent'}}
-                                         color='red'/>
+                            <Fontisto name="cocktail" size={20} color="red" />
                         ),
                     }}
                 />
@@ -62,7 +64,7 @@ function AppContent() {
                     options={{
                         tabBarBadge: favoritesAmount > 0 ? favoritesAmount : null,
                         tabBarIcon: ({color, size}) => (
-                            <Avatar.Icon icon="star" size={35} style={{backgroundColor: 'transparent'}} color='red'/>
+                            <MaterialIcons name={favoritesAmount > 0 ? "favorite" :"favorite-outline"} size={20} color="red" />
                         ),
                     }}
                 />
@@ -71,8 +73,7 @@ function AppContent() {
                     component={SearchStackScreen}
                     options={{
                         tabBarIcon: ({color, size}) => (
-                            <Avatar.Icon icon="search-web" size={35} style={{backgroundColor: 'transparent'}}
-                                         color='red'/>
+                            <AntDesign name="search1" size={20} color="red" />
                         ),
                     }}
                 />
