@@ -1,4 +1,4 @@
-import {View, StyleSheet,FlatList} from "react-native";
+import {View,FlatList} from "react-native";
 import {useEffect} from "react";
 import Spinner from "../components/UI/Spinner/Spinner";
 import Card from "../components/UI/Card/Card";
@@ -25,7 +25,7 @@ export default function Home({ navigation }) {
         dispatch(nextLetter())
     }
     return (
-        <View style={styles.home}>
+        <View>
             { error ? <Error/> :
                 <FlatList
                 data={cocktails}
@@ -36,9 +36,3 @@ export default function Home({ navigation }) {
         </View>
     );
 }
-const styles = StyleSheet.create({
-    home:{
-        flex:1,
-        justifyContent:'center',
-    }
-})

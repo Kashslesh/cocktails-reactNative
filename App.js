@@ -4,7 +4,6 @@ import Home from "./src/screens/Home";
 import Favorites from "./src/screens/Favorites";
 import Search from "./src/screens/Search";
 import Details from "./src/screens/Details";
-import {Avatar} from "react-native-paper"
 import {Provider} from 'react-redux'
 import {Provider as ProviderNav} from 'react-native-paper';
 import Store from "./src/store/Store";

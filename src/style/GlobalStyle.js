@@ -75,6 +75,10 @@ export default gstyles = StyleSheet.create({
     br_50: {
         borderRadius: 50,
     },
+    br_25_top: {
+        borderTopEndRadius: 25,
+        borderTopStartRadius: 25,
+    },
     bw_1: {
         borderWidth: 1,
     },
@@ -104,6 +108,9 @@ export default gstyles = StyleSheet.create({
     },
     flex_1: {
         flex: 1,
+    },
+    flex_2: {
+        flex: 2,
     },
     flexShrink_1: {
         flexShrink: 1,
@@ -299,9 +306,6 @@ export default gstyles = StyleSheet.create({
     },
     icon_black: {
         tintColor: "#000",
-    },
-    d_flex:{
-
     },
     jc_start: {
         justifyContent: "flex-start",
@@ -570,6 +574,25 @@ export default gstyles = StyleSheet.create({
     pl_20: {
         paddingLeft: 20,
     },
+    py_10: {
+        paddingTop: 10,
+        paddingBottom: 10,
+    },
+    py_20: {
+        paddingTop: 20,
+        paddingBottom: 20,
+    },
+    px_5: {
+        paddingLeft: 5,
+        paddingRight: 5,
+    },
+    px_20: {
+        paddingLeft: 20,
+        paddingRight: 20,
+    },
+    p_r_0:{
+      paddingRight: 0
+    },
     text_center: {
         textAlign: "center",
     },
@@ -716,10 +739,19 @@ export default gstyles = StyleSheet.create({
     bg_tnt:{
         backgroundColor: "rgba(255,255,255,0)"
     },
-    m_top:{
+    m_bot_minus:{
         marginBottom: -20
+    },
+    m_top_minus:{
+        marginTop: -30
     },
     r_0:{
         right: 0
+    },
+    min_w_300:{
+        minWidth: 300
+    },
+    min_h_300:{
+        minHeight: 300
     }
 });
