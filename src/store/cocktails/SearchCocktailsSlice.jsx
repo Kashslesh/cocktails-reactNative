@@ -1,6 +1,7 @@
 import {createSlice, createAsyncThunk} from "@reduxjs/toolkit";
 import axios from "axios";
-import {urlApiByName} from "../../service/urls/urls";
+import {urlApiByName, urlApiByCategory} from "../../service/urls/urls";
+import {COCKTAILS_SEARCH_BY_QUERY} from "../../service/tools/request_type";
 
 const initialState = {
     cocktails : [],
@@ -49,8 +50,9 @@ const searchCocktailsSlice = createSlice({
 export const {clearCocktail} = searchCocktailsSlice.actions
 export const searchCocktails = createAsyncThunk(
     "cocktails/searchCocktails",
-    async (cocktail,thunkAPI) => {
-        return axios.get(urlApiByName(cocktail))
+    async (data,thunkAPI) => {
+        const url = data.type === COCKTAILS_SEARCH_BY_QUERY ? urlApiByName(data.searchQuery) : urlApiByCategory(data.category)
+        return axios.get(url)
            .then(res => res.data.drinks)
     }
 )

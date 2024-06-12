@@ -8,6 +8,7 @@ import Card from "../components/UI/Card/Card";
 import Error from '../components/UI/Error/Error';
 import globalStyle from "../style/GlobalStyle";
 import Category from "../components/UI/Category/Category";
+import {COCKTAILS_SEARCH_BY_QUERY} from "../service/tools/request_type";
 
 
 export default function Details({navigation}) {
@@ -21,19 +22,26 @@ export default function Details({navigation}) {
 
     const linkToDetails = function (cocktail) {
         navigation.navigate('DetailsSearch', {cocktail})
+        setSearchQuery('')
     }
     const goBack = () => {
         navigation.goBack()
     }
+    const focus = ()=>{
+        if(searchQuery.length < 1){
+            setIsHidden(false)
+            dispatch(clearCocktail())
+        }
+    }
 
     useEffect(() => {
-        if (searchQuery.length < 3) {
-            return
-        }
         if (searchQuery.length > 1) {
             setIsHidden(true)
         }
-        dispatch(searchCocktails(searchQuery))
+        if (searchQuery.length < 3) {
+            return
+        }
+        dispatch(searchCocktails({searchQuery, type : COCKTAILS_SEARCH_BY_QUERY}))
     }, [searchQuery])
     return (
         <>
@@ -46,6 +54,8 @@ export default function Details({navigation}) {
                 <Text style={[globalStyle.text_center]} variant="titleMedium">Find out your cocktail</Text>
                 <View style={[globalStyle.px_5]}>
                     <Searchbar
+                        onFocus={()=>focus()}
+                        onBlur={()=>focus()}
                         placeholder="Search"
                         aria-label="Search"
                         mode="view"

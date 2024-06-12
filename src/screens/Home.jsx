@@ -7,6 +7,7 @@ import {useDispatch,useSelector} from "react-redux";
 import {allCocktails} from "../store/cocktails/CocktailsSlice";
 import {nextLetter} from "../store/cocktails/CocktailsSlice";
 import Fin from "../components/UI/Fin/Fin";
+import globalStyle from "../style/GlobalStyle";
 export default function Home({ navigation }) {
     const dispatch = useDispatch()
     const cocktails = useSelector(state => state.cocktails.list)
@@ -25,7 +26,7 @@ export default function Home({ navigation }) {
         dispatch(nextLetter())
     }
     return (
-        <View>
+        <View style={[globalStyle.flex_1, globalStyle.jc_center]}>
             { error ? <Error/> :
                 <FlatList
                 data={cocktails}
